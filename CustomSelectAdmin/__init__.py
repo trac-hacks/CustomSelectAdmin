@@ -1,0 +1,2 @@
+# CustomSelectAdmin module
+import customselectadmin

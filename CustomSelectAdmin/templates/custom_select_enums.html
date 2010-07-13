@@ -1,0 +1,90 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      xmlns:py="http://genshi.edgewall.org/">
+  <xi:include href="admin.html" />
+  <head>
+    <title>$label_plural</title>
+  </head>
+
+  <body>
+    <h2>Manage $label_plural</h2>
+
+    <py:choose test="view">
+      <form py:when="'detail'" class="mod" id="modenum" method="post" action="">
+        <fieldset>
+          <legend>Modify $label_singular</legend>
+          <div class="field">
+            <label>Name: <input type="text" name="name" value="${enum}" /></label>
+          </div>
+          <div class="buttons">
+            <input type="submit" name="cancel" value="Cancel"/>
+            <input type="submit" name="save" value="Save"/>
+          </div>
+        </fieldset>
+      </form>
+
+      <py:otherwise>
+        <form class="addnew" id="addenum" method="post" action="">
+          <fieldset>
+            <legend>Add $label_singular</legend>
+            <div class="field">
+              <label>Name:<input type="text" name="name" id="name"/></label>
+            </div>
+            <div class="button">
+              <input type="submit" name="add" value="Add"/>
+            </div>
+          </fieldset>
+        </form>
+
+        <py:choose>
+          <form py:when="enums" id="enumtable" method="post" action="">
+            <!--<div class="placeholder">
+              <input type="checkbox" name="blank_placeholder"/>
+              Display blank placeholder as the first option
+            </div>-->
+            <table class="listing" id="enumlist">
+              <thead>
+                <tr><th class="sel">&nbsp;</th>
+                  <th>Name</th><th>Default</th><th>Order</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr py:for="enum in enums">
+                  <td><input type="checkbox" name="sel" value="${enum}" /></td>
+                  <td>${enum}</td>
+                  <td class="default">
+                    <input type="radio" name="default" value="${enum}"
+                           checked="${enum==default or None}" />
+                  </td>
+                  <td class="default">
+                    <select name="value_${enum}">
+                      <option py:for="i in range(len(enums))"
+                              selected="${i==enums.index(enum) or None}">${i}</option>
+                    </select>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="buttons">
+              <input type="submit" name="remove" value="Remove selected items" />
+              <input type="submit" name="apply" value="Apply changes" />
+            </div>
+            <p class="help">
+              This field cannot be hidden by deleting all the values in it. To remove this field, 
+              delete the entry from trac.ini in the [ticket-custom] section.
+            </p>
+          </form>
+          <p py:otherwise="" class="help">
+            This field cannot be hidden by deleting all the values in it. To remove this field, 
+            delete the entry from trac.ini in the [ticket-custom] section. For this reason, there will
+            always be a blank placeholder value when the list is empty.
+          </p>
+        </py:choose>
+      </py:otherwise>
+    </py:choose>
+  </body>
+
+</html>

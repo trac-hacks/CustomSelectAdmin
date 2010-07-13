@@ -1,0 +1,16 @@
+Overview
+========
+This is a Trac plugin that adds an admin panel for every custom ticket field
+that is of type 'select' in the [ticket-custom] section of trac.ini. These
+panels behave very similarly to the 'Components,' 'Milestones,' 'Priorities,'
+etc. panels.
+
+Options
+-------
+This plugin allows the following option to be added to the [ticket-custom]
+section in trac.ini::
+
+  <FIELDNAME>.panel = <PANELNAME>
+
+This is the string that will display as the title of the panel in the
+left-hand panel selection area in the Trac 'Admin' section.
