@@ -11,7 +11,7 @@ setup(name='CustomSelectAdmin',
       author_email='jimmy@jetheis.com',
       description='Modify custom select fields for tickets in an admin panel within Trac.',
       long_description=open('README').read()+'\n'+open('CHANGES').read(),
-      url='https://svn.jetheis.com/public/CustomSelectAdmin',
+      url='http://github.com/jetheis/CustomSelectAdmin',
       license='GPLv3',
       entry_points={'trac.plugins': ['CustomSelectAdmin = CustomSelectAdmin']},
 )
