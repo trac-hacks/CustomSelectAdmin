@@ -4,7 +4,7 @@ use_setuptools()
 from setuptools import setup, find_packages
 
 setup(name='CustomSelectAdmin',
-      version='0.5',
+      version='0.6dev',
       packages=find_packages(exclude=''),
       package_data={'CustomSelectAdmin' : ['templates/*.html']},
       author='Jimmy Theis',
@@ -13,5 +13,5 @@ setup(name='CustomSelectAdmin',
       long_description=open('README').read()+'\n'+open('CHANGES').read(),
       url='http://github.com/jetheis/CustomSelectAdmin',
       license='GPLv3',
-      entry_points={'trac.plugins': ['CustomSelectAdmin = CustomSelectAdmin']},
+      entry_points={'trac.plugins': ['CustomSelectAdmin = CustomSelectAdmin.admin']},
 )
