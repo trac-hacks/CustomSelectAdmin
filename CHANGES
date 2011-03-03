@@ -1,6 +1,10 @@
 Change History
 ==============
 
+0.6(2011-03-03)
+---------------
+ * Update setup.py and __init__.py to be properly recognized
+
 0.5(2010-01-10)
 ---------------
  * All code adheres to `PEP 8 <http://www.python.org/dev/peps/pep-0008/>`_

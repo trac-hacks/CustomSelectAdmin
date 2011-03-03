@@ -4,7 +4,7 @@ use_setuptools()
 from setuptools import setup, find_packages
 
 setup(name='CustomSelectAdmin',
-      version='0.6',
+      version='0.6.1',
       packages=find_packages(exclude=''),
       package_data={'CustomSelectAdmin' : ['templates/*.html']},
       author='Jimmy Theis',
