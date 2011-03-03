@@ -1,6 +1,10 @@
 Change History
 ==============
 
+0.6.1(2011-03-03)
+-----------------
+ * Use MANIFEST.in in the absence of a Subversion repository
+
 0.6(2011-03-03)
 ---------------
  * Update setup.py and __init__.py to be properly recognized
